@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
-import './App.css';
-import Button from 'antd/es/button';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+
+import Login from './views/login/login';
+import Admin from './views/admin/admin';
 
 class App extends Component{
+
   render(){
     return (
-      <div className="App">
-        <Button type="primary">按钮</Button>
-      </div>
-    );
+      <BrowserRouter>
+        <Switch>{/*只匹配其中一个 */}
+          <Route path='/login' component={Login}></Route>
+          <Route path='/' component={Admin}></Route>
+        </Switch>
+      </BrowserRouter>
+    )
   }
 }
 
